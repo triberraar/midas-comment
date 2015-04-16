@@ -4,5 +4,8 @@ public interface Comment {
 
 	Long getId();
 
+	Long getVersion();
+
 	String getContent();
+
 }

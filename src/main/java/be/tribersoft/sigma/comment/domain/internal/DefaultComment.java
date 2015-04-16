@@ -43,6 +43,7 @@ public class DefaultComment implements Comment {
 		return id;
 	}
 
+	@Override
 	public Long getVersion() {
 		return version;
 	}
