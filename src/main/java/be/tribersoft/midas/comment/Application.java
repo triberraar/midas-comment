@@ -2,14 +2,12 @@ package be.tribersoft.midas.comment;
 
 import javax.inject.Named;
 
-import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.servlet.ServletProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-
-import be.tribersoft.midas.comment.rest.internal.CommentController;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
@@ -18,8 +16,8 @@ public class Application extends SpringBootServletInitializer {
 	public static class JerseyConfig extends ResourceConfig {
 
 		public JerseyConfig() {
-			this.register(CommentController.class);
-			this.register(JacksonFeature.class);
+			property(ServletProperties.FILTER_FORWARD_ON_404, true);
+			packages("be.tribersoft.midas.comment.rest.internal");
 		}
 	}
 

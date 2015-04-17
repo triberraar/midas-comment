@@ -1,8 +1,11 @@
 {
-	"name": "midas-comment",
-	"dependencies": {
-		"angular": "~1.3.0",
-		"angular-resource": "~1.3.0",
-		"bootstrap-css-only": "~3.3.4"
-	}
+  "name": "midas-comment",
+  "dependencies": {
+    "angular": "~1.3.15",
+    "angular-resource": "~1.3.15",
+    "angular-route": "~1.3.15",
+    "bootstrap-css-only": "~3.3.4",
+    "components-font-awesome": "~4.3.0",
+    "lodash": "~3.7.0"
+  }
 }
