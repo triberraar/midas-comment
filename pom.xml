@@ -4,16 +4,19 @@
 	<groupId>be.tribersoft</groupId>
 	<artifactId>sigma-comment</artifactId>
 	<version>0.0.1</version>
+	<packaging>${packaging}</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.3.RELEASE</version>
+
 	</parent>
 
 	<properties>
 		<mockito.version>1.10.19</mockito.version>
 		<javax.inject.version>1</javax.inject.version>
 		<restassured.version>2.4.1</restassured.version>
+		<packaging>jar</packaging>
 	</properties>
 
 	<dependencies>
@@ -106,5 +109,21 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>war</id>
+			<properties>
+				<packaging>war</packaging>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 </project>
