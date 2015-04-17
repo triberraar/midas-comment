@@ -12,7 +12,7 @@ import org.springframework.util.StringUtils;
 import be.tribersoft.sigma.comment.domain.api.Comment;
 import be.tribersoft.sigma.comment.domain.api.exception.MandatoryFieldException;
 
-@Entity
+@Entity(name = "comment")
 public class DefaultComment implements Comment {
 
 	@Id
