@@ -37,5 +37,11 @@ To build the war, provide the profile war. This war can be deployed in tomcat.
 ## Configuration
 To change the configuration change the mysql parameters in the application-prod.yml file.
 
-## Toolse
+The current configuratio is as follows:
+
+	url: jdbc:mysql://localhost/midas-test
+	username: midas
+	password: midas
+
+## Tools
 The software is developed using Eclipse. Maven is used for the java build and Bower is used to manage the front-end dependencies.
