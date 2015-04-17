@@ -1,5 +1,8 @@
 # midas-comment
-A showcase
+A simple comment website
+Build status:
+develop: [![build status](https://www.codeship.io/projects/2c11bec0-c5cb-0132-fd48-3a52b81c571d/status?branch=develop)](https://www.codeship.io/projects/74511)
+master: [![build status](https://www.codeship.io/projects/2c11bec0-c5cb-0132-fd48-3a52b81c571d/status?branch=master)](https://www.codeship.io/projects/74511)
 
 ## Used technologies
 ### Back-end
@@ -45,3 +48,5 @@ The current configuratio is as follows:
 
 ## Tools
 The software is developed using Eclipse. Maven is used for the java build and Bower is used to manage the front-end dependencies.
+
+The code is continually build upon push (to all branches), in codeship and hosted on github.
