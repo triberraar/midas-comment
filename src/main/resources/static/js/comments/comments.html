@@ -21,10 +21,14 @@
 		
 		<form name="commentForm">
 			<div class="input-group margin-bottom-sm">
-				<input class="form-control" type="text" placeholder="Content" ng-model="commentsController.comment.content" required>
+				<input id="content" name="content" class="form-control" type="text" placeholder="Content" ng-model="commentsController.comment.content" required>
   				<span ng-if="commentsController.comment.version === undefined" class="input-group-addon" ng-click="commentsController.add(commentForm)"><i class="fa fa-plus-square-o fa-fw" ></i></span>
   				<span ng-if="commentsController.comment.version !== undefined" class="input-group-addon" ng-click="commentsController.update(commentForm)"><i class="fa fa-pencil-square-o fa-fw"></i></span>
+  				
 			</div>
+			<div class="validation-messages" ng-messages="commentForm.content.$error">
+  					<div ng-message="required" class="help-block">This field is required</div>
+  				</div>
   		</form>
 		
 	</div>

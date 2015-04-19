@@ -3,6 +3,8 @@
 var dependencies = [
 	'ngResource',
 	'ngRoute',
+	'ngMessages',
+	'error',
 	'comments.config'
     
 ];
