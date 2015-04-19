@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -51,5 +52,12 @@ public class CommentController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Comment update(@PathParam("id") Long id, @PathParam("version") Long version, CommentFromJsonAdapter commentFromJsonAdapter) {
 		return commentService.update(id, version, commentFromJsonAdapter);
+	}
+
+	@DELETE
+	@Path("/{id}/{version}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void delete(@PathParam("id") Long id, @PathParam("version") Long version) {
+		commentService.delete(id, version);
 	}
 }

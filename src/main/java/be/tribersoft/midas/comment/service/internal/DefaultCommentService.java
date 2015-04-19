@@ -26,4 +26,9 @@ public class DefaultCommentService implements CommentService {
 		return commentFacade.update(id, version, commentRequest);
 	}
 
+	@Override
+	public void delete(Long id, Long version) {
+		commentFacade.delete(id, version);
+	}
+
 }

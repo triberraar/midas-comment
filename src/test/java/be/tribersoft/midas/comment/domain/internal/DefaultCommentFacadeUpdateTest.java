@@ -19,7 +19,7 @@ public class DefaultCommentFacadeUpdateTest {
 
 	private static final String NEW_CONTENT = "new content";
 	private static final Long ID = 123L;
-	private static final Long LONG = 2L;
+	private static final Long VERSION = 2L;
 	@InjectMocks
 	private DefaultCommentFacade defaultCommentFacade;
 	@Mock
@@ -31,13 +31,13 @@ public class DefaultCommentFacadeUpdateTest {
 
 	@Before
 	public void setup() {
-		when(defaultCommentRepository.getByIdAndVersion(ID, LONG)).thenReturn(defaultComment);
+		when(defaultCommentRepository.getByIdAndVersion(ID, VERSION)).thenReturn(defaultComment);
 		when(commentRequest.getContent()).thenReturn(NEW_CONTENT);
 	}
 
 	@Test
 	public void updatesTheContentOfAComment() {
-		Comment updatedComment = defaultCommentFacade.update(ID, LONG, commentRequest);
+		Comment updatedComment = defaultCommentFacade.update(ID, VERSION, commentRequest);
 
 		assertSame(defaultComment, updatedComment);
 		verify(defaultComment).setContent(NEW_CONTENT);

@@ -41,4 +41,8 @@ public class DefaultCommentRepository implements CommentRepository {
 		return comment;
 	}
 
+	public void delete(Long id, Long version) {
+		commentJpaRepository.delete(getByIdAndVersion(id, version));
+	}
+
 }
