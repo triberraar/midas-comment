@@ -20,7 +20,7 @@ describe('comments.controller', function() {
 	}
 	
 	var createControllerWithExpectations = function() {
-		httpBackend.expectGET( '/comments').respond(200, [{content: 'content1'}, {content: 'content2'}]);
+		httpBackend.expectGET( 'comments').respond(200, [{content: 'content1'}, {content: 'content2'}]);
 		var controller = createController();
 		httpBackend.flush();
 		
@@ -34,7 +34,7 @@ describe('comments.controller', function() {
 	
 	describe('init', function() {
 		it('should get all comments from backend when succesful', function() {
-			httpBackend.expectGET('/comments').respond(200, [{content: 'content1'}, {content: 'content2'}]);
+			httpBackend.expectGET('comments').respond(200, [{content: 'content1'}, {content: 'content2'}]);
 			
 			var controller = createController();
 			httpBackend.flush();
@@ -44,7 +44,7 @@ describe('comments.controller', function() {
 			expect(controller.comments[1].content).toEqual('content2');
 		});
 		it('should handle error  when not succesful', function() {
-			httpBackend.when('GET' , '/comments').respond(500, {message: 'message'});
+			httpBackend.when('GET' , 'comments').respond(500, {message: 'message'});
 			spyOn(errorServiceMock, 'setError');
 			
 			var controller = createController();
@@ -77,8 +77,8 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectPOST('/comments', comment).respond(200, comment);
-			httpBackend.expectGET('/comments').respond(200, [comment]);
+			httpBackend.expectPOST('comments', comment).respond(200, comment);
+			httpBackend.expectGET('comments').respond(200, [comment]);
 			controller.add(formMock);
 			httpBackend.flush();
 			
@@ -101,7 +101,7 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectPOST('/comments', comment).respond(500);
+			httpBackend.expectPOST('comments', comment).respond(500);
 			controller.add(formMock);
 			httpBackend.flush();
 			
@@ -120,8 +120,8 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectPUT('/comments/12/45', comment).respond(200, comment);
-			httpBackend.expectGET('/comments').respond(200, [comment]);
+			httpBackend.expectPUT('comments/12/45', comment).respond(200, comment);
+			httpBackend.expectGET('comments').respond(200, [comment]);
 			controller.update(formMock);
 			httpBackend.flush();
 			
@@ -144,7 +144,7 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectPUT('/comments/12/45', comment).respond(500);
+			httpBackend.expectPUT('comments/12/45', comment).respond(500);
 			controller.update(formMock);
 			httpBackend.flush();
 			
@@ -163,8 +163,8 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectDELETE('/comments/12/45').respond(200);
-			httpBackend.expectGET('/comments').respond(200, [comment]);
+			httpBackend.expectDELETE('comments/12/45').respond(200);
+			httpBackend.expectGET('comments').respond(200, [comment]);
 			controller.remove(comment);
 			httpBackend.flush();
 			
@@ -179,7 +179,7 @@ describe('comments.controller', function() {
 			controller.comment = comment;
 			var formMock = {$valid: true};
 			
-			httpBackend.expectDELETE('/comments/12/45').respond(500);
+			httpBackend.expectDELETE('comments/12/45').respond(500);
 			controller.remove(comment);
 			httpBackend.flush();
 			
