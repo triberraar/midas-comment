@@ -3,7 +3,7 @@
 angular.module('error', [])
 	.directive('error', function() {
 		return {
-			templateUrl : '/js/error/error.html',
+			templateUrl : 'js/error/error.html',
 			controller : 'ErrorController',
 			controllerAs : 'errorController'
 		}
