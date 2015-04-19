@@ -30,4 +30,10 @@ public class DefaultCommentFacade implements CommentFacade {
 		return comment;
 	}
 
+	@Override
+	public void delete(Long id, Long version) {
+		commentRepository.delete(id, version);
+
+	}
+
 }

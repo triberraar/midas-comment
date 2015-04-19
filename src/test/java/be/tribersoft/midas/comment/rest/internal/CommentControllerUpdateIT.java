@@ -60,7 +60,7 @@ public class CommentControllerUpdateIT {
 	}
 
 	@Test
-	public void createsAComment() {
+	public void updatesTheComment() {
 		// @formatter:off
 		given().
 			contentType(MediaType.APPLICATION_JSON).
