@@ -3,3 +3,4 @@
 .settings
 src/main/resources/static/library
 .tern-project
+node_modules

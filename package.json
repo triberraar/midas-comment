@@ -1,0 +1,11 @@
+{
+  "name": "sigma-comment",
+  "devDependencies": {
+    "grunt-jasmine": "^0.1.0",
+    "grunt-karma": "^0.10.1",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.8",
+    "karma-jasmine": "^0.3.5"
+  }
+}
