@@ -2,8 +2,9 @@
 
 angular.module('comments.resource', ['ngResource'])
 .factory('CommentsResource', function ($resource) {
-        return $resource('/comments/:id', {}, {
+        return $resource('/comments/:id/:version', {}, {
         	create: {method: 'POST'},
-        	update: {method: 'PUT'}
+        	update: {method: 'PUT'},
+        	remove: {method: 'DELETE'}
         });
     });
