@@ -15,6 +15,7 @@ module.exports = function(config) {
             'src/main/resources/static/library/angular/angular.js',
             'src/main/resources/static/library/angular-resource/angular-resource.js',
             'src/main/resources/static/library/angular-route/angular-route.js',
+            'src/main/resources/static/library/lodash/lodash.js',
             'src/main/resources/static/library/angular-mocks/angular-mocks.js',
             'src/main/resources/static/js/**/*.js',
             'src/test/resources/static/js/**/*.js',
@@ -66,6 +67,6 @@ module.exports = function(config) {
  
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true
+        singleRun: false
     });
 };
