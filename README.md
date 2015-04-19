@@ -19,6 +19,10 @@ It contains quite a lot of technologies and the following are used:
 JAX-RS: Even though Spring provides Spring MVC I choose to use JAX-RS (with jersey as backing implementation) as this is an official Java standard. JSON is used as the data syntax, as this maps great to front-end technologies.
 * Liquibase: This is a framework for data migrations.
 
+### Font-end
+The front-end is a one page app, written in angularJs. It is one of the hottest and proven technologies used for fron-ends at the moment. Also lodash is used as a helper framework.
+The design is based on bootstrap and font-awesome. But as design is not one of my major skills, the design is kept simple.
+
 ## Design
 ### Back-end
 The application is designed both horizontally and vertically, the package structure reflects this design. First all related code is grouped together in one package (eg comment) if we would have more separate parts they would all have their own package (eg orders, ...). 
@@ -30,6 +34,10 @@ The 3 layers are as followed:
 * services: This is the layer on top of the domain and is mostly used to denote the transactionality. border.
 rest: The rest endpoints and json classes live here and provide the interfaces to the external world. This layer uses the domain or the services layer, depending if the rest endpoints mutate and thus need transactionality.
 
+### Front-end
+The front end follows the standard design of angular. Interactions with the backend are done using ngResource. The separation between model and view is managed by a Controller.
+For the error handling a directive with a service is introduced as this would be reusable for each page.
+
 ## Testing
 As I am a great advocate of TDD all the code is tested.
 
@@ -37,6 +45,11 @@ As I am a great advocate of TDD all the code is tested.
 Every layer is tested separately. As we test the layer below the currently tested layer, we can assume it works correctly. This leads to tests that are easy to read and refactor, as they don't rely on underlying logics but only on interfaces. 
 
 Integration tests are also provided. They use an in memory database that is reset after each test. This provides certainty that all the parts are wired together correctly and work. These tests only execute in the integration phase as they are rather slow, due to the spring context.
+
+### Front-end
+The front end is tested using Karma and Jasmine. Here I test each component separately aswell, for the same reasons as in the back end. The tests are written with help off grunt, a common tool for javascript developers.
+
+To run these tests issue the grunt test command. It is however needed that grunt-cli is installed globally and also a chrome browser, as the chrome browser is used as execution environment.
 
 ## Build
 To build the application use maven. 
@@ -55,6 +68,6 @@ The current configuratio is as follows:
 	password: midas
 
 ## Tools
-The software is developed using Eclipse. Maven is used for the java build and Bower is used to manage the front-end dependencies.
+The software is developed using Eclipse. Maven is used for the java build and Bower is used to manage the front-end dependencies. Grunt and npm are used for the front end tests.
 
 The code is continually build upon push (to all branches), in codeship and hosted on github. Git flow was used.
